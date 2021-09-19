@@ -1,0 +1,191 @@
+
+#include <graphics.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+int main()
+{
+   int gd = DETECT, gmode, errorcode, i, j;
+
+   initgraph(&gd, &gmode, "C:/TURBOC3/BGI");
+   errorcode = graphresult();
+   if (errorcode != grOk)
+   {
+      printf("Graphics error:%s\n", grapherrormsg(errorcode));
+      printf("press any key");
+      getch();
+      exit(1);
+   }
+
+   //------------------------------------------------------------------------//
+
+   //To move the bus
+
+   for (i = 0; i <= 700; i++)
+   {
+
+      //------------------------------------------------------------------------//
+
+      //Sun
+
+      setfillstyle(SOLID_FILL, YELLOW);
+      circle(60, 60, 20);
+      floodfill(61, 61, WHITE);
+
+      //------------------------------------------------------------------------//
+
+      //Text
+
+      outtextxy(465, 220, " CHIPLUN ");
+
+      //------------------------------------------------------------------------//
+
+      //Wheels [outer]
+
+      circle(50 + i, 385, 15);
+      circle(250 + i, 385, 15);
+
+      //Wheels [inner]
+
+      setfillstyle(SOLID_FILL, WHITE);
+      circle(50 + i, 385, 5);
+      floodfill(51 + i, 386, WHITE);
+
+      setfillstyle(SOLID_FILL, WHITE);
+      circle(250 + i, 385, 5);
+      floodfill(251 + i, 386, WHITE);
+
+      //------------------------------------------------------------------------//
+
+      //Frame
+
+      line(5 + i, 390, 30 + i, 390);
+      line(70 + i, 390, 230 + i, 390);
+      line(270 + i, 390, 320 + i, 390);
+
+      //Wheels Mudguard
+
+      line(30 + i, 390, 30 + i, 380);
+      line(70 + i, 390, 70 + i, 380);
+      line(30 + i, 380, 35 + i, 365);
+      line(70 + i, 380, 65 + i, 365);
+      line(35 + i, 365, 65 + i, 365);
+
+      line(230 + i, 390, 230 + i, 380);
+      line(270 + i, 390, 270 + i, 380);
+      line(230 + i, 380, 235 + i, 365);
+      line(270 + i, 380, 265 + i, 365);
+      line(235 + i, 365, 265 + i, 365);
+
+      //Body
+
+      line(5 + i, 390, 5 + i, 290);
+      line(320 + i, 390, 320 + i, 290);
+
+      setfillstyle(SOLID_FILL, RED);
+      line(5 + i, 290, 320 + i, 290);
+      floodfill(6 + i, 291, WHITE);
+
+      //Basket
+
+      setfillstyle(SOLID_FILL, BLUE);
+      line(10 + i, 290, 10 + i, 280);
+      line(100 + i, 290, 100 + i, 286);
+      line(10 + i, 280, 90 + i, 280);
+      line(90 + i, 280, 100 + i, 286);
+      floodfill(11 + i, 281, WHITE);
+
+      //------------------------------------------------------------------------//
+
+      //Door
+
+      setfillstyle(SOLID_FILL, BLACK);
+      line(285 + i, 385, 315 + i, 385);
+      line(285 + i, 385, 285 + i, 300);
+      line(315 + i, 385, 315 + i, 300);
+      line(285 + i, 300, 315 + i, 300);
+      floodfill(286 + i, 301, WHITE);
+
+      //windows
+
+      setfillstyle(SOLID_FILL, BLACK);
+      line(10 + i, 350, 10 + i, 300);
+      line(280 + i, 350, 280 + i, 300);
+      line(10 + i, 350, 280 + i, 350);
+      line(10 + i, 300, 280 + i, 300);
+      floodfill(11 + i, 301, WHITE);
+
+      line(40 + i, 350, 40 + i, 300);
+      line(80 + i, 350, 80 + i, 300);
+      line(120 + i, 350, 120 + i, 300);
+      line(160 + i, 350, 160 + i, 300);
+      line(200 + i, 350, 200 + i, 300);
+      line(240 + i, 350, 240 + i, 300);
+
+      //Text
+
+      outtextxy(90 + i, 370, " ** SHIVNERI ** ");
+
+      //------------------------------------------------------------------------//
+
+      //Board stand
+
+      line(500, 400, 500, 250);
+      line(495, 400, 495, 250);
+      line(495, 250, 500, 250);
+
+      //Box
+
+      setfillstyle(SOLID_FILL, BLUE);
+      line(450, 250, 550, 250);
+      line(450, 250, 450, 200);
+      line(450, 200, 550, 200);
+      line(550, 250, 550, 200);
+      floodfill(451, 201, WHITE);
+
+      //------------------------------------------------------------------------//
+
+      //Buildings
+
+      line(0, 100, 50, 100);
+      line(50, 100, 50, 280);
+      line(50, 150, 120, 150);
+      line(120, 100, 180, 100);
+      line(120, 100, 120, 280);
+      line(180, 100, 180, 200);
+      line(180, 200, 250, 200);
+      line(250, 200, 250, 100);
+      line(250, 100, 300, 100);
+      line(300, 100, 300, 280);
+      line(300, 250, 350, 250);
+      line(350, 50, 350, 250);
+      line(350, 50, 400, 50);
+      line(400, 50, 400, 300);
+      line(400, 170, 450, 170);
+      line(450, 170, 450, 110);
+      line(450, 110, 570, 110);
+      line(570, 110, 570, 280);
+      line(570, 220, 600, 220);
+      line(600, 220, 600, 100);
+      line(600, 100, 700, 100);
+
+      //------------------------------------------------------------------------//
+
+      //Road
+
+      setfillstyle(SOLID_FILL, RED);
+      line(0, 400, 700, 400);
+      line(0, 402, 700, 402);
+      floodfill(1, 401, WHITE);
+
+      //------------------------------------------------------------------------//
+
+      delay(10);
+      cleardevice();
+   }
+
+   getch();
+   closegraph();
+   return 0;
+}
